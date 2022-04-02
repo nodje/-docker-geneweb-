@@ -14,8 +14,6 @@ RUN git checkout tags/Geneweb-ab6b706e
 # etc.
 #RUN export PATH=$OPAM_SWITCH_PREFIX/bin/bin/:$PATH && ocaml ./configure.ml --sosa-legacy --gwdb-legacy --release && make distrib
 RUN export OPAMYES=1 && opam init --compiler=4.09.1 && eval $(opam config env) && opam update && opam install ${OPAM_PACKAGES} && ocaml ./configure.ml --release && make clean distrib
-# TODO: get rid of hardcoded opam path
-# try just `export PATH=$OPAM_SWITCH_PREFIX/bin:$PATH`
 
 # production stage
 FROM debian:unstable-slim as production-stage
@@ -25,7 +23,7 @@ ENV LANGUAGE    fr
 ENV FAMILY      lastname
 ENV PORT        2317
 RUN mkdir -p /home/GW
-COPY --from=build-stage /home/opam/geneweb/distribution /home/GW
+COPY --from=build-stage geneweb/distribution /home/GW
 COPY bootstrap.sh /
 RUN chmod a+x /bootstrap.sh
 
