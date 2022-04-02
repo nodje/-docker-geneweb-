@@ -11,8 +11,8 @@ RUN git checkout tags/Geneweb-ab6b706e
 # ocaml ./configure.ml --sosa-zarith
 # ocaml ./configure.ml --api
 # etc.
-#RUN export PATH=$OPAM_SWITCH_PREFIX/bin/bin/:$PATH && ocaml ./configure.ml && make distrib
-RUN export PATH=/home/opam/.opam/4.09/bin:$PATH && ocaml ./configure.ml --sosa-legacy --gwdb-legacy --release && make clean distrib
+#RUN export PATH=$OPAM_SWITCH_PREFIX/bin/bin/:$PATH && ocaml ./configure.ml --sosa-legacy --gwdb-legacy --release && make distrib
+RUN export PATH=/home/opam/.opam/4.09/bin:$PATH && ocaml ./configure.ml --release && make clean distrib
 # TODO: get rid of hardcoded opam path
 # try just `export PATH=$OPAM_SWITCH_PREFIX/bin:$PATH`
 
