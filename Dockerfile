@@ -1,6 +1,6 @@
 # build stage
 FROM ocaml/opam:ubuntu-ocaml-4.09 as build-stage
-RUN sudo apt-get install -qq m4 protobuf-compiler pkg-config libcurl4-gnutls-dev libgmp-dev
+RUN sudo apt-get install -qq m4 protobuf-compiler pkg-config libcurl4-gnutls-dev libgmp-dev libipc-system-simple-perl libstring-shellquote-perl
 #RUN opam install benchmark camlp5 cppo dune.1.11.4 jingoo markup num ounit ocurl piqi piqilib redis redis-sync stdlib-shims unidecode.0.2.0 uucp uutf yojson zarith
 #RUN opam install benchmark camlp5 cppo dune.1.11.4 jingoo markup stdlib-shims num unidecode uucp zarith
 RUN opam install calendars camlp5.8.00.01 cppo dune.2.9.0 jingoo markup ppx_blob ppx_deriving ppx_import stdlib-shims syslog unidecode.0.2.0 uucp uutf uunf
