@@ -6,7 +6,7 @@ RUN sudo apt-get install -qq m4 protobuf-compiler pkg-config libcurl4-gnutls-dev
 RUN opam install calendars camlp5.7.12 cppo dune.2.7.1 jingoo markup stdlib-shims syslog unidecode.0.2.0 uucp uutf uunf
 RUN git clone https://github.com/geneweb/geneweb
 WORKDIR geneweb
-RUN git checkout tag/Geneweb-ab6b706e
+RUN git checkout tags/Geneweb-ab6b706e
 # TODO add option to support multiple config
 # ocaml ./configure.ml --sosa-zarith
 # ocaml ./configure.ml --api
