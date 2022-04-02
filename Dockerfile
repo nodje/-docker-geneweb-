@@ -4,7 +4,7 @@ FROM ubuntu:20.04 as build-stage
 #RUN sudo apt-get install -qq m4 protobuf-compiler pkg-config libcurl4-gnutls-dev libgmp-dev libipc-system-simple-perl libstring-shellquote-perl
 #RUN opam install calendars camlp5.8.00.01 cppo dune.2.9.0 jingoo markup ppx_blob ppx_deriving ppx_import stdlib-shims syslog unidecode.0.2.0 uucp uutf uunf
 ARG OPAM_PACKAGES="calendars camlp5.8.00.01 cppo dune.2.9.0 jingoo markup ppx_blob ppx_deriving ppx_import stdlib-shims syslog unidecode.0.2.0 uucp uutf uunf"
-RUN apt update && apt install -qy software-properties-common && add-apt-repository ppa:avsm/ppa && apt update && apt install -qy opam libstring-shellquote-perl
+RUN apt update && apt upgrade -y && apt install -qy cc make software-properties-common && add-apt-repository ppa:avsm/ppa && apt update && apt install -qy opam libstring-shellquote-perl
 RUN git clone https://github.com/geneweb/geneweb
 WORKDIR geneweb
 RUN git checkout tags/Geneweb-ab6b706e
