@@ -9,14 +9,14 @@ docker run --env LANGUAGE=fr --name geneweb -p2317:2317 -v ${pwd}/GenealogyData:
 
 ### database creation
 
-The per family name you want to build a genealogy for, execute:
+For each family name you want to build a genealogy for, execute:
 
 ```shell
 docker exec -it geneweb /home/GW/gw/gwc -o /genewebData/lastname.gwb
 ```
 ### configuration
 
-Then next put a configuration file next to the `/genewebData/lastname.gwb` bearing the same name: e.g. here `lastname.gwf`
+Next, put a configuration file next to the `/genewebData/lastname.gwb` bearing the same name: e.g. here `lastname.gwf`
 
 See included `lastname.gwf` for an example.
 
